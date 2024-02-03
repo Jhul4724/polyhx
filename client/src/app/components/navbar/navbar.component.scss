@@ -5,6 +5,12 @@
 .logo-container {
     margin : 0 20.5px;
     padding: 0 60px;
+    width: 10px; /* Set the desired width */
+    height: 10px; /* Set the desired height */
+    img {
+        width: 58px; /* Set the desired width */
+        height: 44px; /* Set the desired height */
+    }
 }
 
 .sub-navbar {

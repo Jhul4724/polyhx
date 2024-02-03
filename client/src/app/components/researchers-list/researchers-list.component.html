@@ -1,5 +1,5 @@
-<!-- <div class="header-container">
-    <h1>Search Result</h1>
+<div class="header-container">
+    <h1>Resultat de recherche</h1>
 </div>
 
 <div class="list-container">
@@ -11,14 +11,14 @@
     </mat-paginator>
     <div *ngFor="let profile of profiles;" class="card-container">
         <div class="img-container">
-            <img src="../../../assets/profil_img.png" alt="">
+            <img src="{{ profile.itemImage }}" alt="">
         </div>
         <div class="card-infos">
             <div class="infos-container">
                 <div class="card-header">
-                    <h3>{{ profile.name }}</h3>
-                    <p>{{ profile.university }}/{{ profile.departement}}</p>
-                    <p>{{ profile.city}}, {{ profile.province }}</p>
+                    <h3>{{ profile.itemName }}</h3>
+                    <p>{{ profile.itemDescription }}/{{ profile.itemDescription}}</p>
+                    <p>Unité: {{ profile.quantity}}, Prix: {{ profile.itemPrice }}</p>
                 </div>
                 <div class="card-contact">
                     <button><span class="material-symbols-outlined">
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="expertise-container">
-                <label *ngFor="let expertise of profile.expertises;" for="expertise"> {{ expertise.name }}</label>
+                <label *ngFor="let expertise of profile.itemType;" for="expertise"> </label>
             </div>
         </div>
         
@@ -41,4 +41,4 @@
                   aria-label="Select page">
     </mat-paginator>
 </div>
- -->
+
