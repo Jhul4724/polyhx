@@ -1,5 +1,11 @@
 .navbar {
     padding-top: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    overflow: hidden;
 }
 
 .logo-container {
@@ -15,8 +21,19 @@
 
 .sub-navbar {
     padding: 0 60px;
-    background-color: #1aa3dd;
+    background-color: #144801;
     color: #ffffff;
+    padding: 10px;
+    border-bottom: 5px solid #0d3b03;
+}
+
+.sub-navbar a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    font-size: 20px;
 }
 
 .block-title {
@@ -47,5 +64,6 @@
 }
 
 .content a:hover {
-    background: #5abce9;
+    background: #33f70b;
+    color: black;
 }

@@ -1,0 +1,122 @@
+mockups = [
+    {
+        "lastName": "Martin",
+        "firstName": "Julie",
+        "itemName": "Melons d'eau",
+        "itemDescription": "Melons d'eau juteux et rafraîchissants",
+        "itemImage": "https://i.ytimg.com/vi/xqTpF1Qr5xg/maxresdefault.jpg",
+        "itemPrice": "1,99€/kg",
+        "itemNumber": 101,
+        "itemType": "vegetable",
+        "username": "julieM",
+        "quantity": 50
+    },
+    {
+        "lastName": "Bernard",
+        "firstName": "Alexandre",
+        "itemName": "Fraises Douces",
+        "itemDescription": "Fraises rouges et sucrées, cultivées sans pesticides pour une saveur naturelle.",
+        "itemImage": "https://i.ytimg.com/vi/9fcGBPMrmN4/maxresdefault.jpg",
+        "itemPrice": "3,50€/kg",
+        "itemNumber": 102,
+        "itemType": "fruit",
+        "username": "alexandreB",
+        "quantity": 40
+    },
+    {
+        "lastName": "Dupont",
+        "firstName": "Sophie",
+        "itemName": "Carottes Nantaises",
+        "itemDescription": "Carottes fraîches et croquantes, idéales pour les jus ou les plats mijotés.",
+        "itemImage": "https://lesjardinsdelisabeth.com/cdn/shop/files/carotteprimeur2023.jpg?v=1688412351",
+        "itemPrice": "1,50€/kg",
+        "itemNumber": 103,
+        "itemType": "vegetable",
+        "username": "sophieD",
+        "quantity": 60
+    },
+    {
+        "lastName": "Leroy",
+        "firstName": "Michel",
+        "itemName": "Tomates Juteuses",
+        "itemDescription": "Tomates juteuses et charnues, idéales pour les salades ou les sauces.",
+        "itemImage": "https://www.almanac.com/sites/default/files/styles/or/public/image_nodes/tomatoes_helios4eos_gettyimages-edit.jpg?itok=AFHF0CtR",
+        "itemPrice": "2,99€/kg",
+        "itemNumber": 104,
+        "itemType": "fruit",
+        "username": "michelL",
+        "quantity": 55
+    },
+    {
+        "lastName": "Moreau",
+        "firstName": "Émilie",
+        "itemName": "Citrouille d'Automne",
+        "itemDescription": "Citrouilles parfaites pour vos soupes, tartes ou comme décoration d'Halloween.",
+        "itemImage": "https://www.ecoumene.com/wp-content/uploads/2023/12/Citrouille_Moranga2022_carre.jpg",
+        "itemPrice": "0,99€/kg",
+        "itemNumber": 105,
+        "itemType": "vegetable",
+        "username": "emilieM",
+        "quantity": 30
+    },
+    {
+        "lastName": "Petit",
+        "firstName": "Thomas",
+        "itemName": "Pommes de Terre Nouvelles",
+        "itemDescription": "Pommes de terre nouvelles, idéales pour les salades ou rôties au four.",
+        "itemImage": "https://m.espacepourlavie.ca/sites/espacepourlavie.ca/files/organic-homemade-vegetables-hands-male-potatoes_73944-6628.jpg",
+        "itemPrice": "1,20€/kg",
+        "itemNumber": 106,
+        "itemType": "vegetable",
+        "username": "thomasP",
+        "quantity": 70
+    },
+    {
+        "lastName": "Rousseau",
+        "firstName": "Claire",
+        "itemName": "Persil Frais",
+        "itemDescription": "Persil frais et aromatique, parfait pour assaisonner vos plats ou décorer vos assiettes.",
+        "itemImage": "https://www.rustica.fr/images/bottes-persil-jardin-potager.jpg",
+        "itemPrice": "0,45€/botte",
+        "itemNumber": 107,
+        "itemType": "vegetable",
+        "username": "claireR",
+        "quantity": 80
+    },
+    {
+        "lastName": "Martin",
+        "firstName": "Julie",
+        "itemName": "Concombre Vert",
+        "itemDescription": "Concombres croquants et hydratants, parfaits pour une consommation fraîche.",
+        "itemImage": "https://i.ytimg.com/vi/xqTpF1Qr5xg/maxresdefault.jpg",
+        "itemPrice": "1,20€ par pièce",
+        "itemNumber": 201,
+        "itemType": "vegetable",
+        "username": "julieM",
+        "quantity": 30
+    },
+    {
+        "lastName": "Dupont",
+        "firstName": "Éric",
+        "itemName": "Fraises Parfumées",
+        "itemDescription": "Délicieuses fraises sucrées, cultivées sans produits chimiques.",
+        "itemImage": "https://i.ytimg.com/vi/9fcGBPMrmN4/maxresdefault.jpg",
+        "itemPrice": "3,00€ le kilo",
+        "itemNumber": 202,
+        "itemType": "fruit",
+        "username": "ericD",
+        "quantity": 25
+    },
+    {
+        "lastName": "Bernard",
+        "firstName": "Charlotte",
+        "itemName": "Bleuets à cueillir",
+        "itemDescription": "Bleuets sauvages, sucrés et juteux, parfaits pour vos petits-déjeuners ou pâtisseries.",
+        "itemImage": "https://cdn.shopify.com/s/files/1/0717/3223/2497/files/Vacciniumcorymbosum_Chandler_2_500x.jpg?v=1692466144",
+        "itemPrice": "4,50€ le kilo",
+        "itemNumber": 203,
+        "itemType": "fruit",
+        "username": "charlotteB",
+        "quantity": 125
+    }
+]
