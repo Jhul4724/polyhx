@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FillProfiles } from '@app/classes/researcher-profil';
+import { FillItems } from '@app/classes/researcher-profil';
 
 @Component({
     selector: 'app-researchers-list',
@@ -7,5 +7,5 @@ import { FillProfiles } from '@app/classes/researcher-profil';
     styleUrls: ['./researchers-list.component.scss'],
 })
 export class ResearchersListComponent {
-    profiles = FillProfiles();
+    profiles = FillItems();
 }
