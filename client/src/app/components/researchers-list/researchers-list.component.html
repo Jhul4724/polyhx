@@ -1,5 +1,11 @@
+<br><br>
 <div class="header-container">
     <h1>À vendre</h1>
+</div>
+
+<div class="button-container">
+    <button class="fixed-size-btn">Fruits</button>
+    <button class="fixed-size-btn">Légumes</button>
 </div>
 
 <div class="list-container">
@@ -7,7 +13,8 @@
                   [pageSize]="10"
                   [pageSizeOptions]="[5, 10, 25, 100]"
                   [hidePageSize]="true"
-                  aria-label="Select page">
+                  aria-label="Select page"
+                  style="background-color: transparent; color:white;">
     </mat-paginator>
     <div *ngFor="let profile of profiles;" class="card-container">
         <div class="img-container">
@@ -17,11 +24,13 @@
             <div class="infos-container">
                 <div class="card-header">
                     <br><br>
-                    <h3>{{ profile.itemName }}</h3>
-                    <br><br>
-                    <p>{{ profile.itemDescription }}/{{ profile.itemDescription}}</p>
-                    <br><br>
-                    <p>Unité: {{ profile.quantity}}, Prix: {{ profile.itemPrice }}</p>
+                    <h3 style="text-shadow: 1px 10px 5px rgba(0, 0, 0, 0.25); color:rgb(1, 62, 15);">{{ profile.itemName }}</h3>
+                    <br>
+                    <p style="color:rgb(201, 201, 201);">{{ profile.itemDescription }}/{{ profile.itemDescription}}</p>
+                    <p>Unité: {{ profile.quantity}}</p>
+                    <br>
+                    <p style="font-size: 50px;">{{ profile.itemPrice }}</p>
+                    <br>
                     <div class="card-contact">
                         <button>
                             <span class="material-symbols-outlined">
@@ -46,7 +55,8 @@
     <mat-paginator [length]="100"
                   [pageSize]="10"
                   [pageSizeOptions]="[5, 10, 25, 100]"
-                  aria-label="Select page">
+                  aria-label="Select page"
+                  style="background-color: transparent; color:white;">
     </mat-paginator>
 </div>
 
