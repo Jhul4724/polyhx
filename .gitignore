@@ -1,5 +1,9 @@
 # Python
 *__pycache__*
 
+# Credentials
+env_vars.json
+
 # Testing
 tests/*
+test*.ipynb
