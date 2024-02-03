@@ -1,0 +1,41 @@
+<div class="header">
+    <h1>Researcher Search</h1>
+    <hr class="solid">
+</div>
+<div class="search-container">
+  <mat-form-field class="example-chip-list search-input">
+    <mat-chip-grid #chipGrid aria-label="Enter expertises">
+      <mat-chip-row class="label" *ngFor="let fruit of fruits"
+                    (removed)="remove(fruit)"
+                    [editable]="true"
+                    (edited)="edit(fruit, $event)"
+                    [aria-description]="'press enter to edit ' + fruit.name">
+        {{fruit.name}}
+        <button matChipRemove [attr.aria-label]="'remove ' + fruit.name">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+      <input placeholder="New expertise..."
+             [matChipInputFor]="chipGrid"
+             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+             [matChipInputAddOnBlur]="addOnBlur"
+             (matChipInputTokenEnd)="add($event)"/>
+    </mat-chip-grid>
+  </mat-form-field>
+  <button mat-flat-button color="primary">Search</button>
+</div>
+<!--
+<div class="label-container">
+  <label for="search-input" class="label">Machine Learning</label>
+  <label for="search-input" class="label">Data Science</label>
+  <label for="search-input" class="label">Data Visualisation</label>
+  <label for="search-input" class="label">+</label>
+   Add more labels as needed 
+</div>
+-->
+
+<div class="header">
+    <h1>Universities</h1>
+    <hr class="solid">
+</div>
+  

@@ -1,0 +1,45 @@
+.navbar {
+    padding-top: 48px;
+}
+
+.logo-container {
+    margin : 0 20.5px;
+    padding: 0 60px;
+}
+
+.sub-navbar {
+    padding: 0 60px;
+    background-color: #1aa3dd;
+    color: #ffffff;
+}
+
+.block-title {
+    display: flex;
+}
+
+.block-title h2 {
+    margin: 0;
+    padding: 1em;
+    background: #1487b4;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.block-title h2:hover {
+    cursor: pointer;
+}
+
+.content {
+    display: flex;
+    margin: 0;
+}
+
+.content a {
+    color: #ffffff;
+    padding: 1em;
+    text-decoration: none;
+}
+
+.content a:hover {
+    background: #5abce9;
+}

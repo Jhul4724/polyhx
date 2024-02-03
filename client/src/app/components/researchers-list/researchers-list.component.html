@@ -1,0 +1,44 @@
+<div class="header-container">
+    <h1>Search Result</h1>
+</div>
+
+<div class="list-container">
+    <mat-paginator [length]="100"
+                  [pageSize]="10"
+                  [pageSizeOptions]="[5, 10, 25, 100]"
+                  [hidePageSize]="true"
+                  aria-label="Select page">
+    </mat-paginator>
+    <div *ngFor="let profile of profiles;" class="card-container">
+        <div class="img-container">
+            <img src="../../../assets/profil_img.png" alt="">
+        </div>
+        <div class="card-infos">
+            <div class="infos-container">
+                <div class="card-header">
+                    <h3>{{ profile.name }}</h3>
+                    <p>{{ profile.university }}/{{ profile.departement}}</p>
+                    <p>{{ profile.city}}, {{ profile.province }}</p>
+                </div>
+                <div class="card-contact">
+                    <button><span class="material-symbols-outlined">
+                        call
+                        </span></button>
+                    <button><span class="material-symbols-outlined">
+                        mail
+                        </span></button>
+                </div>
+            </div>
+            <div class="expertise-container">
+                <label *ngFor="let expertise of profile.expertises;" for="expertise"> {{ expertise.name }}</label>
+            </div>
+        </div>
+        
+    </div>
+    <mat-paginator [length]="100"
+                  [pageSize]="10"
+                  [pageSizeOptions]="[5, 10, 25, 100]"
+                  aria-label="Select page">
+    </mat-paginator>
+</div>
+
