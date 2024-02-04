@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 
 from db.login import is_valid_email, is_valid_password, login, signup
 from db.get import get_fruits, get_listings, get_user_sales, get_vegetables
+from db.post import create_new_sale
 
 app = Flask(__name__)
 
@@ -59,6 +60,22 @@ def api_get_fruits():
         return jsonify({'status': -1, 'message': 'Invalid email format'}), 400
     status, fruits = get_fruits(email)
     return jsonify({'status': status, 'fruits': fruits})
+
+@app.route('/api/create_new_sale', methods=['POST'])
+def api_create_new_sale():
+    data = request.json
+    # Validate email
+    if not is_valid_email(data.get('email')):
+        return jsonify({'status': -1, 'message': 'Invalid email format'}), 400
+    
+    result = create_new_sale(data.get('email'), data.get('name'), data.get('description'), data.get('image'), data.get('is_fruit'), data.get('price'), data.get('quantity'))
+    
+    if result == 0:
+        return jsonify({'status': 0, 'message': 'Sale listing created successfully'}), 200
+    elif result == -1:
+        return jsonify({'status': -1, 'message': 'Email does not exist'}), 404
+    else:
+        return jsonify({'status': -2, 'message': 'An error occurred'}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
