@@ -1,11 +1,14 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import json
+import os
 from typing import Any, Tuple
 
 from db.edit_listings import remove_listing, sell_from_listing
 from db.login import is_valid_email, is_valid_password, login, signup
 from db.get import get_fruits, get_listings, get_user_sales, get_vegetables
 from db.post import create_new_sale
+from plant_id.requests import identify, health
 
 app = Flask(__name__)
 CORS(app)
@@ -115,6 +118,48 @@ def api_sell_from_listing():
         return jsonify({'status': -2, 'message': 'Not enough quantity available'}), 400
     else:
         return jsonify({'status': result, 'message': 'An error occurred'}), 500
+
+@app.route('/api/identify', methods=['POST'])
+def api_identify():
+    image_path = request.json.get('image_path')
+    
+    # Check if the path exists
+    if not os.path.exists(image_path):
+        return jsonify({'status': -1, 'message': 'File path does not exist'}), 400
+    
+    # Check if the file is in jpg or png format
+    if not (image_path.endswith('.jpg') or image_path.endswith('.png')):
+        return jsonify({'status': -2, 'message': 'File format must be JPG or PNG'}), 400
+    
+    # Call the identify function
+    identification_result = identify(image_path)
+    
+    # Check the result
+    if identification_result is None:
+        return jsonify({'status': -3, 'message': 'Plant ID API call returned None'}), 500
+    
+    return jsonify({'status': 0, 'result': json.loads(identification_result)}), 200
+
+@app.route('/api/health', methods=['POST'])
+def api_health():
+    image_path = request.json.get('image_path')
+    
+    # Check if the path exists
+    if not os.path.exists(image_path):
+        return jsonify({'status': -1, 'message': 'File path does not exist'}), 400
+    
+    # Check if the file is in jpg or png format
+    if not (image_path.endswith('.jpg') or image_path.endswith('.png')):
+        return jsonify({'status': -2, 'message': 'File format must be JPG or PNG'}), 400
+    
+    # Call the health function
+    health_result = health(image_path)
+    
+    # Check the result
+    if health_result is None:
+        return jsonify({'status': -3, 'message': 'Plant ID API call returned None'}), 500
+    
+    return jsonify({'status': 0, 'result': json.loads(health_result)}), 200
 
 if __name__ == '__main__':
     app.run(debug=True)
