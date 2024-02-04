@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from typing import Any, Tuple
 
 from db.edit_listings import remove_listing, sell_from_listing
@@ -7,6 +8,7 @@ from db.get import get_fruits, get_listings, get_user_sales, get_vegetables
 from db.post import create_new_sale
 
 app = Flask(__name__)
+CORS(app)
 
 def is_not_none(*args: Tuple[Any]) -> bool:
     return all(arg is not None for arg in args)

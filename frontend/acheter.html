@@ -23,7 +23,9 @@
             return response.json();
         })
         .then(data => {
-            if (!'fruits' in data) {
+            if ('fruits' in data) {
+                console.log(data['fruits']);
+            } else {
                 console.error('No "fruits" property found in the data object.');
             }
 
@@ -39,12 +41,12 @@
                 productContainer.innerHTML = `
                     <div class="product">
                         <div class="product-image">
-                            <img src="${product.itemImage}" alt="Image of ${product.itemName}">
+                            <img src="${product['image']}" alt="Image of ${product['name']}">
                         </div>
                         <div class="product-info">
-                            <div class="productname"><h2>${product.itemName}</h2></div>
-                            <div class="productdescription"><p>${product.itemDescription}</p></div>
-                            <div class="productprice"><p>${product.itemPrice}</p></div>
+                            <div class="productname"><h2>${product['name']}</h2></div>
+                            <div class="productdescription"><p>${product['description']}</p></div>
+                            <div class="productprice"><p>${product['price']}$/kg</p></div>
                         </div>
                     </div>
                 `;
@@ -54,7 +56,7 @@
             });
     
             // Handle case when there are no products
-            if (!data.length) {
+            if (!fruits.length) {
                 parentContainer.innerHTML = '<p>Aucun produit disponible.</p>';
             }
         })
