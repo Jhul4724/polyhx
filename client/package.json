@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "ng serve --open",
+    "generate": "ng generate component vendre-page",
     "build": "ng build",
     "deploy": "ng build",
     "watch": "ng build --watch --configuration development",

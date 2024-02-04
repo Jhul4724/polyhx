@@ -17,6 +17,13 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { AddModifyPageComponent } from './pages/add-modify-page/add-modify-page.component';
 import { AnalyticsPageComponent } from './pages/analytics-page/analytics-page.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
+import { HomeComponent } from './home/home.component';
+import { SellComponent } from './sell/sell.component';
+import { InscrireComponent } from './inscrire/inscrire.component';
+import { ConnecterComponent } from './connecter/connecter.component';
+import { AccueilComponent } from './accueil/accueil.component';
+import { VendreComponent } from './vendre/vendre.component';
+import { VendrePageComponent } from './vendre-page/vendre-page.component';
 
 /**
  * Main module that is used in main.ts.
@@ -37,6 +44,13 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
         ResearchersListComponent,
         AddModifyPageComponent,
         AnalyticsPageComponent,
+        HomeComponent,
+        SellComponent,
+        InscrireComponent,
+        ConnecterComponent,
+        AccueilComponent,
+        VendreComponent,
+        VendrePageComponent,
     ],
     imports: [AppMaterialModule, AppRoutingModule, BrowserAnimationsModule, BrowserModule, FormsModule, HttpClientModule, SearchBarComponent],
     providers: [],
