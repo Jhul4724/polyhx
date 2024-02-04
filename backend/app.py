@@ -8,7 +8,7 @@ from db.edit_listings import remove_listing, sell_from_listing
 from db.login import is_valid_email, is_valid_password, login, signup
 from db.get import get_fruits, get_listings, get_user_sales, get_vegetables
 from db.post import create_new_sale
-from plant_id.requests import identify, health
+from plant_id.requests import identify, health, download_image, delete_temp_file
 
 app = Flask(__name__)
 CORS(app)
@@ -123,6 +123,9 @@ def api_sell_from_listing():
 def api_identify():
     image_path = request.json.get('image_path')
     
+    download_image(image_path, 'resources/tmp.jpg')
+    image_path = 'resources/tmp.jpg'
+    
     # Check if the path exists
     if not os.path.exists(image_path):
         return jsonify({'status': -1, 'message': 'File path does not exist'}), 400
@@ -133,6 +136,7 @@ def api_identify():
     
     # Call the identify function
     identification_result = identify(image_path)
+    delete_temp_file(image_path)
     
     # Check the result
     if identification_result is None:
@@ -144,6 +148,9 @@ def api_identify():
 def api_health():
     image_path = request.json.get('image_path')
     
+    download_image(image_path, 'resources/tmp.jpg')
+    image_path = 'resources/tmp.jpg'
+    
     # Check if the path exists
     if not os.path.exists(image_path):
         return jsonify({'status': -1, 'message': 'File path does not exist'}), 400
@@ -154,6 +161,7 @@ def api_health():
     
     # Call the health function
     health_result = health(image_path)
+    delete_temp_file(image_path)
     
     # Check the result
     if health_result is None:

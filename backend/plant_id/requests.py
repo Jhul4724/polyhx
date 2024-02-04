@@ -1,6 +1,7 @@
 import base64
-import requests
 import json
+import os
+import requests
 
 from config.loader import config, ConfigSchema
 
@@ -106,3 +107,23 @@ def health(image_path):
             'images': similar_images
         }
         return json.dumps(result)
+
+def download_image(url, local_filename):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+
+        with open(local_filename, 'wb') as f:
+            f.write(response.content)
+
+        return True, f"Image downloaded successfully to {local_filename}"
+
+    except requests.RequestException as e:
+        return False, f"Error downloading image: {str(e)}"
+
+def delete_temp_file(file_path):
+    try:
+        os.remove(file_path)
+        return True, "Temporary file deleted successfully"
+    except OSError as e:
+        return False, f"Error deleting temporary file: {str(e)}"
