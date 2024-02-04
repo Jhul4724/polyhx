@@ -9,66 +9,11 @@
   <title>Home Page</title>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-        fetchProducts();
+        fetchFruits();
     });
-    
-    function fetchProducts() {
-        const apiUrl = 'http://127.0.0.1:5000/api/get_fruits?email=juh@gmail.com'; // Replace with your actual API endpoint
-    
-        fetch(apiUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            if ('fruits' in data) {
-                console.log(data['fruits']);
-            } else {
-                console.error('No "fruits" property found in the data object.');
-            }
-
-            const fruits = data['fruits'];
-            const parentContainer = document.getElementById('parentContainer');
-    
-            fruits.forEach(product => {
-                // Create a new productContainer for each product
-                const productContainer = document.createElement('div');
-                productContainer.className = 'product-container';
-    
-                // Fill the productContainer with product details
-                productContainer.innerHTML = `
-                    <div class="product">
-                        <div class="product-image">
-                            <img src="${product['image']}" alt="Image of ${product['name']}">
-                        </div>
-                        <div class="product-info">
-                            <div class="productname"><h2>${product['name']}</h2></div>
-                            <div class="productdescription"><p>${product['description']}</p></div>
-                            <div class="productprice"><p>${product['price']}$/kg</p></div>
-                        </div>
-                    </div>
-                `;
-    
-                // Append the new productContainer to the parent container
-                parentContainer.appendChild(productContainer);
-            });
-    
-            // Handle case when there are no products
-            if (!fruits.length) {
-                parentContainer.innerHTML = '<p>Aucun produit disponible.</p>';
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching product data:', error);
-            document.getElementById('parentContainer').innerHTML = '<p>Erreur lors du chargement des produits.</p>';
-        });
-    }
-    
   </script>
 </head>
-
+<script src="./script.js" defer></script>
 <body>
   <section>
     <nav>
@@ -88,8 +33,8 @@
 
   <div class="maincontent">
     <div class="button-container">
-        <button id="btn1" onclick="toggleActive(1)" class="btnfilter" style="width: 48%;">Fruits</button>
-        <button id="btn2" onclick="toggleActive(2)" class="btnfilter" style="width: 48%;">Légumes</button>
+        <button id="btn1" onclick="fetchFruits()//; toggleActive(1)" class="btnfilter" style="width: 48%;">Fruits</button>
+        <button id="btn2" onclick="fetchVegs()//; toggleActive(2)" class="btnfilter" style="width: 48%;">Légumes</button>
     </div>
 
     <div id="parentContainer"></div>
