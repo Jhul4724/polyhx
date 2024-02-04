@@ -1,3 +1,4 @@
+import bcrypt
 import psycopg2
 import re
 from typing import Tuple
@@ -35,11 +36,13 @@ def login(email: str, password: str) -> Tuple[int, Tuple[str, str, str]]:
         conn, cursor = connect()
         
         # Check if the email exists
-        cursor.execute("SELECT 1 FROM users WHERE email = %s", (email,))
-        if cursor.fetchone():
-            # Check if the password matches
-            cursor.execute("SELECT 1 FROM users WHERE email = %s AND password = %s", (email, password))
-            if cursor.fetchone():
+        cursor.execute("SELECT password FROM users WHERE email = %s", (email,))
+        user_record = cursor.fetchone()
+        
+        if user_record:
+            # Check if the provided password matches the hashed password
+            hashed_password = user_record[0]
+            if bcrypt.checkpw(password.encode('utf-8'), hashed_password.encode('utf-8')):
                 # Return user information if email and password match
                 cursor.execute("SELECT first_name, last_name, email FROM users WHERE email = %s", (email,))
                 return (0, cursor.fetchone())
@@ -49,7 +52,8 @@ def login(email: str, password: str) -> Tuple[int, Tuple[str, str, str]]:
         else:
             # Email doesn't exist
             return (-1, ('', '', ''))
-    except Exception:
+    except Exception as e:
+        print(e)  # For debugging purposes
         return (-1, ('', '', ''))
     finally:
         # Close the cursor and connection
@@ -77,12 +81,16 @@ def signup(email: str, password: str, first_name: str, last_name: str) -> int:
         if cursor.fetchone():
             return -1
         else:
-            # Insert the new user into the users table
+            # Hash the password
+            hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+
+            # Insert the new user into the users table with the hashed password
             cursor.execute("INSERT INTO users (email, password, first_name, last_name) VALUES (%s, %s, %s, %s)",
-                           (email, password, first_name, last_name))
+                           (email, hashed_password, first_name, last_name))
             conn.commit()
             return 0
-    except Exception:
+    except Exception as e:
+        print(e)  # For debugging purposes
         return -2
     finally:
         # Close the cursor and connection
