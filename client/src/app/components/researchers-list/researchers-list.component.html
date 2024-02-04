@@ -10,22 +10,15 @@
     </div>
     
     <div class="list-container">
-        <mat-paginator [length]="100"
-                      [pageSize]="10"
-                      [pageSizeOptions]="[5, 10, 25, 100]"
-                      [hidePageSize]="true"
-                      aria-label="Select page"
-                      style="background-color: transparent; color:white;">
-        </mat-paginator>
         <div *ngFor="let profile of profiles;" class="card-container">
             <div class="img-container">
-                <img src="{{ profile.itemImage }}" alt="">
+                <img src="{{ profile.itemImage }}" alt="image">
             </div>
             <div class="card-infos">
                 <div class="infos-container">
                     <div class="card-header">
                         <br><br>
-                        <h3 style="text-shadow: 1px 10px 5px rgba(0, 0, 0, 0.25); color:rgb(1, 62, 15);">{{ profile.itemName }}</h3>
+                        <h3 style="text-shadow: 1px 10px 5px rgba(0, 0, 0, 0.25); color:rgb(255, 255, 255);"><b>{{ profile.itemName }}</b></h3>
                         <hr style="margin-right:10px;">
                         <br>
                         <p style="color:rgb(201, 201, 201);">{{ profile.itemDescription }}/{{ profile.itemDescription}}</p>
@@ -35,31 +28,21 @@
                         <br>
                         <div class="card-contact">
                             <button>
-                                <span class="material-symbols-outlined">
-                                call
+                                <span class="material-icons-outlined">
+                                    shopping_cart
                                 </span>
+                                Ajouter
                             </button>
                             <button>
-                                <span class="material-symbols-outlined">
-                                mail
+                                <span class="material-icons-outlined">
+                                    visibility
                                 </span>
+                                Voir plus de détails
                             </button>
                         </div>
                     </div>
-                    
-                </div>
-                <div class="expertise-container">
-                    <label *ngFor="let expertise of profile.itemType;" for="expertise"> </label>
                 </div>
             </div>
-            
         </div>
-        <mat-paginator [length]="100"
-                      [pageSize]="10"
-                      [pageSizeOptions]="[5, 10, 25, 100]"
-                      aria-label="Select page"
-                      style="background-color: transparent; color:white;">
-        </mat-paginator>
     </div>
 </div>
-
