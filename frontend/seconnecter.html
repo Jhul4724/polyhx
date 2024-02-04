@@ -4,22 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles.css" >
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
   <link rel="shortcut icon" type="image/x-icon" href="./Images/logo.png" />
   <title>Home Page</title>
 </head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    function animateWords() {
+      $("#word-1").fadeIn(1000).delay(1000).fadeOut(1000, function() {
+        $("#word-2").fadeIn(1000).delay(1000).fadeOut(1000, function() {
+          $("#word-3").fadeIn(1000).delay(1000).fadeOut(1000, animateWords);
+        });
+      });
+    }
+
+    animateWords(); // Commencez l'animation initiale
+  });
+</script>
+
 
 <body style="background: linear-gradient(-45deg, 
 rgb(47, 131, 27, 0.4), 
 rgb(8, 170, 11, 0.4), 
 rgb(2, 55, 15, 0.4));">
-    <h1 style="font-size: 100px; margin-top: 400px; text-align:center; text-shadow: 10px 10px 20px rgba(244, 244, 255, 0.9); margin-top:500px;">ECO CROPS</h1>
+    <h1 style="font-size: 150px; margin-top: 200px; text-align:center; text-shadow: 10px 10px 20px rgba(255, 255, 255, 0.8);">ECO CROPS</h1>
+    <h2 id="animated-text">
+        <span id="word-1">Frais</span>
+        <span id="word-2">Local</span>
+        <span id="word-3">Passionné</span>
+    </h2>
+      
+      
+    
     <video autoplay muted loop class="video-background">
         <source src="./Images/backgroundvideo.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
     </video>
     
-    <form action="/submit-form-endpoint" method="POST" style="background-color: rgba(255, 255, 255, 0.1); margin-left: 20%; margin-right: 20%; padding: 30px; border-radius: 15px; box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3); margin-top: 100px;">
+    <form action="/submit-form-endpoint" method="POST" style="background-color: rgba(255, 255, 255, 0.1); margin-left: 20%; margin-right: 20%; padding: 30px; border-radius: 15px; box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3); margin-top: 50px;">
         <div style="margin: 30px;">
             <h1 style="text-shadow: 10px 10px 20px rgba(0, 0, 0, 0.9);">Courriel</h1>
             <input class="inputlogin" type="text" name="email">

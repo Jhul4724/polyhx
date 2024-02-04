@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles.css" >
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
   <link rel="shortcut icon" type="image/x-icon" href="./Images/logo.png" />
   <title>Home Page</title>
 </head>
@@ -22,25 +22,38 @@
     
       <button id="logoutButton" class="try-now">Se déconnecter</button>
     </nav>
-    <hr style="margin-top: 0; margin-right: 20px; margin-left: 20px; border: 0; height: 2px; background-color:rgb(0, 57, 6);">
+    <hr style="margin-top: 0; margin-right: 20px; margin-left: 20px; border: 0; height: 5px; background-color:rgb(0, 57, 6);">
     <div class="image-container"></div>
   </section>
 
-  <section>
-    <div class="presentation">
-      <h1 style="font-size:80px; margin-top:10px; margin-bottom:10px; box-shadow: 10px;" class="outlined-text">Welcome to MediQuest AI</h1>
-      <h2 style="font-size:30px; margin-top:10px; margin-bottom:10px;" class="outlined-text">Your Gateway to <i>THE</i> Clinical Trial for you</h2>
-      <h3 style="text-align: center;">
-        We take your health seriously at Clinical Trial Finder. By connecting you with the latest, 
-        personalized medical trials, we strive to bring you closer to the care you need, efficiently 
-        and reliably.
-      </h3>
-      <br><br>
-      <div>
-        <a href="./ctf.html" class="btn1"><i class="animation"></i>TRY US NOW<i class="animation"></i></a>
-      </div>
-    </div>
-  </section>
+  <div class="maincontent" style="height: 100vh;">
+    <h1>Téléverser une Photo</h1>
+    <input type="file" accept="image/*" id="photoInput" class="uploadbtn">
+    <button id="uploadButton" class="uploadbtn">Uploader la Photo</button>
+
+    <p id="photoPath"></p>
+
+    <script>
+        const photoInput = document.getElementById('photoInput');
+        const uploadButton = document.getElementById('uploadButton');
+        const photoPath = document.getElementById('photoPath');
+
+        // Gérer le clic sur le bouton "Uploader la Photo"
+        uploadButton.addEventListener('click', () => {
+            if (photoInput.files.length > 0) {
+                const selectedFile = photoInput.files[0];
+
+                // Créer un objet URL pour la photo téléchargée
+                const objectURL = URL.createObjectURL(selectedFile);
+
+                // Afficher le chemin absolu du fichier
+                photoPath.textContent = `Chemin absolu : ${objectURL}`;
+            } else {
+                photoPath.textContent = 'Aucune photo sélectionnée.';
+            }
+        });
+    </script>
+  </div>
 
   <footer>
     <!-- Footer content here -->
