@@ -13,7 +13,7 @@ html {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    opacity: 0.1;
+    opacity: 0.3;
   }
   
   .video-background {
@@ -248,7 +248,7 @@ html {
   .product {
     display: flex;
     width: 100%;
-    margin-bottom: 20px; /* Espace entre les produits */
+    margin-bottom: 20px; 
   }
   
   .product-image {
@@ -257,7 +257,7 @@ html {
   }
   
   .product-image img {
-    width: 100%; /* L'image prend toute la largeur du conteneur */
+    width: 100%;
     height: 300px;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
     object-fit: cover;
@@ -291,9 +291,102 @@ html {
     font-size: 50px;
     font-weight:900;
   }
+
+  .active {
+    background-color: rgb(3, 59, 17) !important;
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+  }
   
   /*--------------------------------VENDRE.HTML---------------------*/
   
   .creerannonce {
     margin: 5px 5% 5px;
   }
+
+  /*---------------------------------CSS POUR POP UP CRÉER UNE ANNONCE-------------------*/
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px;
+    background-color: rgba(0, 65, 11, 0.952);
+    border-radius: 5px;
+    z-index: 1001; 
+    max-width: 70%; 
+    width: 100%;
+    color: white;
+  }
+  
+  .modal-content {
+    position: relative;
+    font-size: 35px;
+  }
+  
+  .modal .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 100px;
+    cursor: pointer;
+  }
+  
+  /* Overlay styling */
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000; 
+  }
+  
+
+    #listingForm input {
+        width:95%;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: rgb(255,255,255, 0.2);
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;        
+        color: white;
+        height: 30px;
+        font-size: 25px;
+    }
+
+    #listingForm textarea {
+        width:95%;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: rgb(255,255,255, 0.2);
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
+        height: 100px;   
+        font-size: 25px;
+        color: white;
+    }
+  
+    ::placeholder {
+        color: rgb(255, 255, 255);
+        font-size: 25px;
+      }
+
+      .addlistingbtn {
+        background-color: rgb(255,255,255, 0.1);
+        font-size: 40px;
+        margin-top: 100px;
+        margin-bottom: 150px;
+        margin-left: 25%;
+        padding: 30px;
+        border-radius: 15px;
+        border: #cacaca;
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+        color: white;
+        text-shadow: 10px 10px 20px rgba(0, 0, 0, 0.9);
+        transition: background-color 0.5s ease;
+      }

@@ -17,8 +17,7 @@ function fetchFruits() {
 
         const fruits = data['fruits'];
         const parentContainer = document.getElementById('parentContainer');
-
-        // Handle case when there are no products
+     
         if (!fruits.length) {
             parentContainer.innerHTML = '<p>Aucun produit disponible.</p>';
         } else {
@@ -26,11 +25,10 @@ function fetchFruits() {
         }
 
         fruits.forEach(product => {
-            // Create a new productContainer for each product
+
             const productContainer = document.createElement('div');
             productContainer.className = 'product-container';
 
-            // Fill the productContainer with product details
             productContainer.innerHTML = `
                 <div class="product">
                     <div class="product-image">
@@ -44,7 +42,6 @@ function fetchFruits() {
                 </div>
             `;
 
-            // Append the new productContainer to the parent container
             parentContainer.appendChild(productContainer);
         });
     })
@@ -74,7 +71,7 @@ function fetchVegs() {
         const vegetables = data['vegetables'];
         const parentContainer = document.getElementById('parentContainer');
 
-        // Handle case when there are no products
+
         if (!vegetables.length) {
             parentContainer.innerHTML = '<p>Aucun produit disponible.</p>';
         } else {
@@ -82,11 +79,10 @@ function fetchVegs() {
         }
 
         vegetables.forEach(product => {
-            // Create a new productContainer for each product
+      
             const productContainer = document.createElement('div');
             productContainer.className = 'product-container';
 
-            // Fill the productContainer with product details
             productContainer.innerHTML = `
                 <div class="product">
                     <div class="product-image">
@@ -100,7 +96,6 @@ function fetchVegs() {
                 </div>
             `;
 
-            // Append the new productContainer to the parent container
             parentContainer.appendChild(productContainer);
         });
     })
@@ -109,3 +104,21 @@ function fetchVegs() {
         document.getElementById('parentContainer').innerHTML = '<p>Erreur lors du chargement des produits.</p>';
     });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    toggleActive('btn1');
+});
+
+function toggleActive(selectedBtnId) {
+    var buttons = document.querySelectorAll('.btnfilter');
+    buttons.forEach(function(button) {
+        button.classList.remove('active');
+    });
+    
+    var activeButton = document.getElementById(selectedBtnId);
+    activeButton.classList.add('active');
+}
+
+
+

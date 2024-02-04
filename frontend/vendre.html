@@ -23,7 +23,7 @@
       <ul id="nav-list">
         <li><a href="index.html">Accueil</a></li>
         <li><a href="./acheter.html">Acheter</a></li>
-        <li><a href="./vendre.html">Vendre</a></li>
+        <li><a href="./vendre.html" style="background-color:rgb(0, 64, 19); padding: 10px; box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2); color:rgb(255, 255, 255); font-weight:550;">Vendre</a></li>
       </ul>
     
       <button id="logoutButton" class="try-now">Se déconnecter</button>
@@ -32,9 +32,39 @@
     <div class="image-container"></div>
   </section>
   <br>
+  
+  <!-- Cette section est destinée au pop up lorsqu'un user veut créer une annonce.-->
   <div class="button-container">
-    <button onclick="" class="creerannonce" style="width: 90%; font-size: 50px; height: 100px; text-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4); color: rgb(3, 86, 25); margin-bottom: 0px; font-weight: 600; border-radius: 30px;">Créer une annonce</button>
+    <button id="myBtn" class="creerannonce" style="width: 90%; font-size: 50px; height: 100px; text-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4); color: rgb(3, 86, 25); margin-bottom: 0px; font-weight: 600; border-radius: 30px;">Créer une annonce</button>
   </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <br><br>
+        <form id="listingForm">
+            <div class="image-container"></div>
+            <br><br>
+            <input type="text" id="itemName" placeholder="Nom du fruit/légume" required>
+            <textarea id="itemDescription" placeholder="Description de l'item" required></textarea>
+            <input type="url" id="itemImage" placeholder="Insérez le URL de l'image" required>
+            <br><br>
+            <input type="text" id="itemPrice" placeholder="Prix" required>
+            <input type="text" id="itemType" placeholder="Indiquer fruits ou légumes" required>
+            <input type="text" id="username" placeholder="Pseudonyme" required>
+            <input type="number" id="quantity" placeholder="Quantité" required>
+            <input type="hidden" id="status" value="0">
+            <button type="submit" class="addlistingbtn">Ajouter l'annonce</button>
+        </form>
+    </div>
+    </div>
+
+<!-- Overlay -->
+<div id="overlay" class="overlay"></div>
+
+
+
 
   <div class="maincontent">
     <h1 style="font-size: 50px; background-color:rgb(4, 77, 29); padding: 20px; box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);">Vos annonces</h1>

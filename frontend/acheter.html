@@ -21,7 +21,7 @@
       
       <ul id="nav-list">
         <li><a href="index.html">Accueil</a></li>
-        <li><a href="./acheter.html">Acheter</a></li>
+        <li><a href="./acheter.html" style="background-color:rgb(0, 64, 19); padding: 10px; box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2); color:rgb(255, 255, 255); font-weight:550;">Acheter</a></li>
         <li><a href="./vendre.html">Vendre</a></li>
       </ul>
     
@@ -33,9 +33,9 @@
 
   <div class="maincontent">
     <div class="button-container">
-        <button id="btn1" onclick="fetchFruits()//; toggleActive(1)" class="btnfilter" style="width: 48%;">Fruits</button>
-        <button id="btn2" onclick="fetchVegs()//; toggleActive(2)" class="btnfilter" style="width: 48%;">Légumes</button>
-    </div>
+        <button id="btn1" onclick="fetchFruits(); toggleActive('btn1');" class="btnfilter" style="width: 48%;">Fruits</button>
+        <button id="btn2" onclick="fetchVegs(); toggleActive('btn2');" class="btnfilter" style="width: 48%;">Légumes</button>
+    </div>    
 
     <div id="parentContainer"></div>
     
