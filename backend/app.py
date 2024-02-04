@@ -82,8 +82,8 @@ def api_create_new_sale():
     
     result = create_new_sale(data.get('email'), data.get('name'), data.get('description'), data.get('image'), data.get('is_fruit'), data.get('price'), data.get('quantity'))
     
-    if result == 0:
-        return jsonify({'status': 0, 'message': 'Sale listing created successfully'}), 200
+    if result > 0:
+        return jsonify({'status': result, 'message': 'Sale listing created successfully'}), 200
     elif result == -1:
         return jsonify({'status': -1, 'message': 'Email does not exist'}), 404
     else:

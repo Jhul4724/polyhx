@@ -18,7 +18,7 @@ def create_new_sale(email: str, name: str, description: str, image: str, is_frui
         
     Returns:
         - int:
-            - int: 0 if listings created successfully, -1 if email doesn't exist, -2 otherwise
+            - int: the listing ID if listings created successfully, -1 if email doesn't exist, -2 otherwise
     '''
     try:
         conn, cursor = connect()
@@ -31,11 +31,12 @@ def create_new_sale(email: str, name: str, description: str, image: str, is_frui
 
         user_id = user_id_result[0]
 
-        # Insert the new listing
-        cursor.execute('INSERT INTO listings (user_id, name, description, image, is_fruit, price, quantity) VALUES (%s, %s, %s, %s, %s, %s, %s)',
+        # Insert the new listing and return the ID
+        cursor.execute('INSERT INTO listings (user_id, name, description, image, is_fruit, price, quantity) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING listing_id',
                        (user_id, name, description, image, is_fruit, price, quantity))
+        listing_id = cursor.fetchone()[0]  # Fetch the returned ID
         conn.commit()
-        return 0  # Success
+        return listing_id  # Return the listing ID
     except Exception as e:
         print(e)  # For debugging
         return -2  # Error occurred
