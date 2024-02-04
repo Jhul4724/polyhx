@@ -1,10 +1,14 @@
 from flask import Flask, request, jsonify
+from typing import Any, Tuple
 
 from db.login import is_valid_email, is_valid_password, login, signup
 from db.get import get_fruits, get_listings, get_user_sales, get_vegetables
 from db.post import create_new_sale
 
 app = Flask(__name__)
+
+def is_not_none(*args: Tuple[Any]) -> bool:
+    return all(arg is not None for arg in args)
 
 @app.route('/api/login', methods=['POST'])
 def api_login():
@@ -26,6 +30,10 @@ def api_signup():
             and data.get('first_name') and data.get('last_name')):
         return jsonify({'status': -1, 'message': 'Invalid input'}), 400
 
+    # Validate user input
+    if not is_not_none(data['email'], data['password'], data['first_name'], data['last_name']):
+        return jsonify({'status': -1, 'message': 'Invalid input'}), 400
+    
     status = signup(data['email'], data['password'], data['first_name'], data['last_name'])
     return jsonify({'status': status})
 
@@ -67,6 +75,10 @@ def api_create_new_sale():
     # Validate email
     if not is_valid_email(data.get('email')):
         return jsonify({'status': -1, 'message': 'Invalid email format'}), 400
+    
+    # Validate user input
+    if not is_not_none(data.get('email'), data.get('name'), data.get('description'), data.get('image'), data.get('is_fruit'), data.get('price'), data.get('quantity')):
+        return jsonify({'status': -1, 'message': 'Invalid input'}), 400
     
     result = create_new_sale(data.get('email'), data.get('name'), data.get('description'), data.get('image'), data.get('is_fruit'), data.get('price'), data.get('quantity'))
     
