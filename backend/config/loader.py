@@ -18,6 +18,9 @@ class ConfigSchema:
     
     # User Credentials
     MIN_PASSWORD_LENGTH = 'min_password_length'
+    
+    # Plant ID
+    PLANT_API_KEY = 'plant_api_key'
 
 
 def load_config():
@@ -49,6 +52,9 @@ def load_config():
     
     # Set root path
     root_path = config['project_root_folder'] + '/'
+    
+    # Hidden vars
+    config[ConfigSchema.PLANT_API_KEY] = env_vars[ConfigSchema.PLANT_API_KEY]
     
     # Add root path to folders
     for key in [
