@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from typing import Any, Tuple
 
+from db.edit_listings import remove_listing, sell_from_listing
 from db.login import is_valid_email, is_valid_password, login, signup
 from db.get import get_fruits, get_listings, get_user_sales, get_vegetables
 from db.post import create_new_sale
@@ -88,6 +89,30 @@ def api_create_new_sale():
         return jsonify({'status': -1, 'message': 'Email does not exist'}), 404
     else:
         return jsonify({'status': -2, 'message': 'An error occurred'}), 500
+
+@app.route('/api/remove_listing', methods=['POST'])
+def api_remove_listing():
+    data = request.json
+    result = remove_listing(data.get('email'), data.get('listing_id'))
+    if result == 0:
+        return jsonify({'status': 0, 'message': 'Listing removed successfully'}), 200
+    elif result == -1:
+        return jsonify({'status': -1, 'message': 'Email and listing ID do not match'}), 400
+    else:
+        return jsonify({'status': result, 'message': 'An error occurred'}), 500
+
+@app.route('/api/sell_from_listing', methods=['POST'])
+def api_sell_from_listing():
+    data = request.json
+    result = sell_from_listing(data.get('listing_id'), data.get('qty_sold'))
+    if result >= 0:
+        return jsonify({'status': 0, 'updated_quantity': result, 'message': 'Listing quantity updated successfully'}), 200
+    elif result == -1:
+        return jsonify({'status': -1, 'message': 'Listing does not exist'}), 400
+    elif result == -2:
+        return jsonify({'status': -2, 'message': 'Not enough quantity available'}), 400
+    else:
+        return jsonify({'status': result, 'message': 'An error occurred'}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
