@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles.css" >
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
   <link rel="shortcut icon" type="image/x-icon" href="./Images/logo.png" />
   <title>Home Page</title>
   <script>
@@ -21,20 +21,22 @@
       
       <ul id="nav-list">
         <li><a href="index.html">Accueil</a></li>
-        <li><a href="./acheter.html" style="background-color:rgb(0, 64, 19); padding: 10px; box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2); color:rgb(255, 255, 255); font-weight:550;">Acheter</a></li>
+        <li><a href="./acheter.html" style="background-color:rgb(0, 58, 6); padding: 10px; box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2); color:rgb(255, 255, 255); font-weight:550;">Acheter</a></li>
         <li><a href="./vendre.html">Vendre</a></li>
       </ul>
     
-      <button id="logoutButton" class="try-now">Se déconnecter</button>
+      <button id="logoutButton" class="try-now">
+        Déconnecter
+      </button>
     </nav>
-    <hr style="margin-top: 0; margin-right: 20px; margin-left: 20px; border: 0; height: 2px; background-color:rgb(0, 57, 6);">
+    <hr style="margin-top: 0; margin-right: 20px; margin-left: 20px; border: 0; height: 5px; background-color:rgb(0, 57, 6);">
     <div class="image-container"></div>
   </section>
 
   <div class="maincontent">
     <div class="button-container">
-        <button id="btn1" onclick="fetchFruits(); toggleActive('btn1');" class="btnfilter" style="width: 48%;">Fruits</button>
-        <button id="btn2" onclick="fetchVegs(); toggleActive('btn2');" class="btnfilter" style="width: 48%;">Légumes</button>
+        <button id="btn1" onclick="fetchFruits(); toggleActive('btn1');" class="btnfilter" style="width: 48%; height: 100px;">Fruits</button>
+        <button id="btn2" onclick="fetchVegs(); toggleActive('btn2');" class="btnfilter" style="width: 48%; height: 100px;">Légumes</button>
     </div>    
 
     <div id="parentContainer"></div>

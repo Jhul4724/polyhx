@@ -33,11 +33,12 @@ html {
   body {
     display: flex;
     flex-direction: column;
+    font-family: 'Poppins', sans-serif;
     min-height: 100vh;
-    color: white;
+    color: rgb(254, 250, 224);
     background: linear-gradient(-45deg, 
-              rgb(47, 131, 27), 
-              rgb(8, 170, 11), 
+              rgb(190, 248, 175), 
+              rgb(23, 70, 24), 
               rgb(2, 55, 15));
   
     background-size: 400% 400%;
@@ -60,6 +61,8 @@ html {
   .outlined-text {
     color: rgb(253, 253, 253);
   }
+
+  
   
   nav {
     display: flex;
@@ -171,7 +174,9 @@ html {
     color: white;
     margin-bottom: 0px;
   }
-  
+
+  /*-------------ANIMATION FOR LOGIN/REGISTRATION PAGE---------*/
+
   .loginbtn {
     background-color: rgb(255,255,255, 0.1);
     font-size: 50px;
@@ -222,7 +227,7 @@ html {
   .button-container button {
     padding: 10px;
     font-size: 25px;
-    background-color: rgb(255,255,255, 0.2);
+    background-color: rgb(254, 250, 224,0.7);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     height: 60px;
@@ -237,7 +242,7 @@ html {
   .product-container {
     display: flex;
     flex-wrap: wrap;
-    background-color: rgb(255,255,255, 0.2);
+    background-color: rgb(185, 148, 112,0.5);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     padding: 25px;
@@ -390,3 +395,16 @@ html {
         text-shadow: 10px 10px 20px rgba(0, 0, 0, 0.9);
         transition: background-color 0.5s ease;
       }
+
+      /*------------------------------------*/
+      .uploadbtn {
+        width:95%;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: rgb(255,255,255, 0.2);
+        box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;        
+        color: white;
+        height: 50px;
+        font-size: 35px;
+    }
