@@ -7,3 +7,6 @@ env_vars.json
 # Testing
 tests/*
 test*.ipynb
+
+# tmp
+*/backgroundvideo.mp4

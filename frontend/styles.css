@@ -1,0 +1,299 @@
+html {
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .image-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    background-image: url('./Images/logo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.1;
+  }
+  
+  .video-background {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto;
+    z-index: -100;
+    background-size: cover;
+    overflow: hidden;
+    opacity: 0.5;
+  }
+    
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    color: white;
+    background: linear-gradient(-45deg, 
+              rgb(47, 131, 27), 
+              rgb(8, 170, 11), 
+              rgb(2, 55, 15));
+  
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+    height: 100vh;
+    z-index: -2;
+    }
+    @keyframes gradient {
+      0% {
+      background-position: 0% 50%;
+      }
+      50% {
+      background-position: 100% 50%;
+      }
+      100% {
+      background-position: 0% 50%;
+      }
+  }
+  
+  .outlined-text {
+    color: rgb(253, 253, 253);
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    padding-left: 10%;
+    padding-right: 10%;
+    height: 7vh;
+    overflow: hidden;
+  }
+  
+  nav a img {
+    height: 50px;
+  }
+  
+  #nav-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  }
+  
+  #nav-list li {
+    padding: 0 15px;
+  }
+  
+  #nav-list li a {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    font-size: 30px;
+  }
+  
+  nav .try-now {  
+    background-color: rgba(0, 71, 6, 0.4);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: transform 0.2s ease-in;
+    font-size: 30px;
+    border: none;
+    }
+  
+    nav .try-now:hover {  
+      background-color: rgb(6, 177, 0);
+      color: #000000;
+      transform: scale(1.3);
+      box-shadow: 1px 1px 20px rgba(3, 82, 18, 0.9);
+    }
+  
+  .flex-item:hover {
+    transform: scale(1.1);
+    background-color: #059351;
+  }
+  
+    
+  #nav-list li a:hover {
+    background-color: aliceblue;
+    color: black;
+  }
+    
+  .hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+  }
+    
+  .nav-toggle {
+    display: none;
+  }
+   
+  @media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    
+    #nav-list {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    #nav-list li {
+        padding: 10px 0;
+    }
+    
+    .nav-toggle:checked + #nav-list {
+        display: flex;
+    }
+  }
+  
+  .inputlogin {
+    background-color: rgb(255, 255, 255, 0.2); 
+    box-shadow: 1px 1px 20px rgba(244, 244, 255, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    width: 90%;
+    height: 40px;
+    font-size: 40px;
+    color: white;
+    margin-bottom: 0px;
+  }
+  
+  .loginbtn {
+    background-color: rgb(255,255,255, 0.1);
+    font-size: 50px;
+    margin-top: 100px;
+    margin-bottom: 150px;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 30px;
+    border-radius: 15px;
+    border: #cacaca;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    color: white;
+    text-shadow: 10px 10px 20px rgba(0, 0, 0, 0.9);
+    transition: background-color 0.5s ease;
+  }
+  
+  .loginbtn:hover {
+    background-color: #6dc903;
+    color: #000000;
+  }
+  
+  .registerbtn {
+    background-color: rgb(255,255,255, 0.2);
+    font-size: 50px;
+    margin-top: 100px;
+    margin-bottom: 150px;
+    margin-left: 25%;
+    margin-right: 15%;
+    padding: 30px;
+    border-radius: 15px;
+    border: #cacaca;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    color: white;
+    text-shadow: 10px 10px 20px rgba(0, 0, 0, 0.9);
+    transition: background-color 0.5s ease;
+  }
+  
+  .registerbtn:hover {
+    background-color: #6dc903;
+    color: #000000;
+  }
+  
+  /* ---------------------------CODE POUR ACHETER.HTML-------------*/
+  .button-container {
+    margin-bottom: 45px;
+  }
+  
+  .button-container button {
+    padding: 10px;
+    font-size: 25px;
+    background-color: rgb(255,255,255, 0.2);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    height: 60px;
+    width: 100px;
+    border: none;
+  }
+  
+  .button-container #btn1 {
+    margin-right:25px;
+  }
+  
+  .product-container {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(255,255,255, 0.2);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 25px;
+    min-height: 300px;
+    margin-bottom: 30px;
+  }
+  
+  .product {
+    display: flex;
+    width: 100%;
+    margin-bottom: 20px; /* Espace entre les produits */
+  }
+  
+  .product-image {
+    width: 40%;
+    overflow: hidden;
+  }
+  
+  .product-image img {
+    width: 100%; /* L'image prend toute la largeur du conteneur */
+    height: 300px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+    object-fit: cover;
+    border-radius: 15px;
+  }
+  
+  .product-info {
+    width: 60%;
+    padding-left: 20px;
+  }
+  
+  .maincontent {
+    margin: 0% 5% 10% 5%;
+    background-color: rgb(255,255,255, 0.2);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 50px;
+  }
+  
+  .productname {
+    font-size: 25px;
+    color: #006134;
+  }
+  
+  .productdescription {
+    color: #486e5c;
+    font-size: 25px;
+  }
+  
+  .productprice {
+    font-size: 50px;
+    font-weight:900;
+  }
+  
+  /*--------------------------------VENDRE.HTML---------------------*/
+  
+  .creerannonce {
+    margin: 5px 5% 5px;
+  }

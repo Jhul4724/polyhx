@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css" >
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="./Images/logo.png" />
+  <title>Home Page</title>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetchProducts();
+    });
+    
+    function fetchProducts() {
+        const apiUrl = 'http://127.0.0.1:5000/api/get_fruits?email=juh@gmail.com'; // Replace with your actual API endpoint
+    
+        fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            if (!'fruits' in data) {
+                console.error('No "fruits" property found in the data object.');
+            }
+
+            const fruits = data['fruits'];
+            const parentContainer = document.getElementById('parentContainer');
+    
+            fruits.forEach(product => {
+                // Create a new productContainer for each product
+                const productContainer = document.createElement('div');
+                productContainer.className = 'product-container';
+    
+                // Fill the productContainer with product details
+                productContainer.innerHTML = `
+                    <div class="product">
+                        <div class="product-image">
+                            <img src="${product.itemImage}" alt="Image of ${product.itemName}">
+                        </div>
+                        <div class="product-info">
+                            <div class="productname"><h2>${product.itemName}</h2></div>
+                            <div class="productdescription"><p>${product.itemDescription}</p></div>
+                            <div class="productprice"><p>${product.itemPrice}</p></div>
+                        </div>
+                    </div>
+                `;
+    
+                // Append the new productContainer to the parent container
+                parentContainer.appendChild(productContainer);
+            });
+    
+            // Handle case when there are no products
+            if (!data.length) {
+                parentContainer.innerHTML = '<p>Aucun produit disponible.</p>';
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching product data:', error);
+            document.getElementById('parentContainer').innerHTML = '<p>Erreur lors du chargement des produits.</p>';
+        });
+    }
+    
+  </script>
+</head>
+
+<body>
+  <section>
+    <nav>
+      <a href="index.html"><img src="./Images/logo.png" alt="Logo"></a>
+      
+      <ul id="nav-list">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="./acheter.html">Acheter</a></li>
+        <li><a href="./vendre.html">Vendre</a></li>
+      </ul>
+    
+      <button id="logoutButton" class="try-now">Se déconnecter</button>
+    </nav>
+    <hr style="margin-top: 0; margin-right: 20px; margin-left: 20px; border: 0; height: 2px; background-color:rgb(0, 57, 6);">
+    <div class="image-container"></div>
+  </section>
+
+  <div class="maincontent">
+    <div class="button-container">
+        <button id="btn1" onclick="toggleActive(1)" class="btnfilter" style="width: 48%;">Fruits</button>
+        <button id="btn2" onclick="toggleActive(2)" class="btnfilter" style="width: 48%;">Légumes</button>
+    </div>
+
+    <div id="parentContainer"></div>
+    
+<!--
+    <div class="product-container" id="productContainer">
+        <div class="product">
+            <div class="product-image">
+                <img src="https://via.placeholder.com/150" alt="Placeholder Image" id="productImage">
+            </div>
+            <div class="product-info">
+                <div class="productname"><h2 id="productName">Chargement...</h2></div>
+                <div class="productdescription"><p id="productDescription">Description du produit ici. Voici un exemple de description qui sera remplacée.</p></div>
+                <div class="productprice"><p id="productPrice">Prix/unité</p></div>
+            </div>
+        </div>
+    </div>    
+    <div class="product-container" id="product-container-2">
+        <div class="product">
+            <div class="product-image">
+                <img src="https://via.placeholder.com/150" alt="Placeholder Image" id="productImage">
+            </div>
+            <div class="product-info">
+                <div class="productname"><h2 id="productName-2">Chargement...</h2></div>
+                <div class="productdescription"><p id="productDescription-2">Description du produit ici. Voici un exemple de description qui sera remplacée.</p></div>
+                <div class="productprice"><p id="productPrice-2">Prix/unité</p></div>
+            </div>
+        </div>
+    </div>   
+    <div class="product-container" id="product-container-3">
+        <div class="product">
+            <div class="product-image">
+                <img src="https://via.placeholder.com/150" alt="Placeholder Image" id="productImage">
+            </div>
+            <div class="product-info">
+                <div class="productname"><h2 id="productName-3">Chargement...</h2></div>
+                <div class="productdescription"><p id="productDescription-3">Description du produit ici. Voici un exemple de description qui sera remplacée.</p></div>
+                <div class="productprice"><p id="productPrice-3">Prix/unité</p></div>
+            </div>
+        </div>
+    </div>   
+    <div class="product-container" id="product-container-4">
+        <div class="product">
+            <div class="product-image">
+                <img src="https://via.placeholder.com/150" alt="Placeholder Image" id="productImage">
+            </div>
+            <div class="product-info">
+                <div class="productname"><h2 id="productName-4">Chargement...</h2></div>
+                <div class="productdescription"><p id="productDescription-4">Description du produit ici. Voici un exemple de description qui sera remplacée.</p></div>
+                <div class="productprice"><p id="productPrice-4">Prix/unité</p></div>
+            </div>
+        </div>
+    </div>  -->
+
+  </div>
+</body>
+</html>

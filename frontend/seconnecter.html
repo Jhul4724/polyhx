@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css" >
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="./Images/logo.png" />
+  <title>Home Page</title>
+</head>
+
+<body style="background: linear-gradient(-45deg, 
+rgb(47, 131, 27, 0.4), 
+rgb(8, 170, 11, 0.4), 
+rgb(2, 55, 15, 0.4));">
+    <h1 style="font-size: 100px; margin-top: 400px; text-align:center; text-shadow: 10px 10px 20px rgba(244, 244, 255, 0.9); margin-top:500px;">ECO CROPS</h1>
+    <video autoplay muted loop class="video-background">
+        <source src="./Images/backgroundvideo.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    
+    <form action="/submit-form-endpoint" method="POST" style="background-color: rgba(255, 255, 255, 0.1); margin-left: 20%; margin-right: 20%; padding: 30px; border-radius: 15px; box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3); margin-top: 100px;">
+        <div style="margin: 30px;">
+            <h1 style="text-shadow: 10px 10px 20px rgba(0, 0, 0, 0.9);">Courriel</h1>
+            <input class="inputlogin" type="text" name="email">
+            <br>
+            <h1 style="text-shadow: 10px 10px 20px rgba(0, 0, 0, 0.9);">Mot de passe</h1>
+            <input class="inputlogin" type="password" name="password">
+            <a href="./sinscrire.html"><h5 style="margin-top: 5px; color: rgb(4, 73, 4)">Cliquer ici pour s'inscrire</h5></a>
+            <br><br>
+            <button type="submit" class="loginbtn">
+                Se Connecter
+            </button>
+        </div>
+    </form>
+</body>
+
+</html>
