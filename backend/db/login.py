@@ -41,8 +41,8 @@ def login(email: str, password: str) -> Tuple[int, Tuple[str, str, str]]:
         
         if user_record:
             # Check if the provided password matches the hashed password
-            hashed_password = user_record[0]
-            if bcrypt.checkpw(password.encode('utf-8'), hashed_password.encode('utf-8')):
+            hashed_password = user_record[0].tobytes()
+            if bcrypt.checkpw(password.encode('utf-8'), hashed_password):
                 # Return user information if email and password match
                 cursor.execute("SELECT first_name, last_name, email FROM users WHERE email = %s", (email,))
                 return (0, cursor.fetchone())
