@@ -45,57 +45,80 @@
 
   <div class="maincontent" style="height: 100vh;">
 
-    <div class="containerapi">
-      <div class="image-gallery"></div>
-      <div class="info">
-          <p id="plant-name"></p>
-          <p id="health-status"></p>
-          <p id="probability"></p>
+    <div style="box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2); background-color: rgba(255, 255, 255, 0.2); padding: 20px; font-size: 20px; border-radius: 15px;">
+      <div class="container">
+        <div class="image-gallery"></div>
+        <div class="info">
+            <p id="plant-name"></p>
+            <div>Health Status:</div>
+            <div class="progress-container">
+                <div id="health-bar" class="progress-bar">0%</div>
+            </div>
+            <div>Probability:</div>
+            <div class="progress-container">
+                <div id="probability-bar" class="progress-bar">0%</div>
+            </div>
+        </div>
       </div>
-  </div>
+    </div>
 
   <script>
-    // Your JSON data
-    const jsonData = {
-        "result": {
-            "images": [
-                "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/3/d15/5241bc44035d6c7318d98c6e76254ad66b002.jpeg",
-                "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/3/e32/4a425b0671fd6501d60cd3d98b8eab12c6347.jpeg"
-            ],
-            "is_healthy": 0.9859478659927845,
-            "name": "Animalia",
-            "probability": 0.014083078
-        }
-    };
+      // Simulated API data
+      function simulateFetchData() {
+          return new Promise(resolve => {
+              setTimeout(() => {
+                  resolve({
+                      "result": {
+                          "images": [
+                          "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/3/ac6/f7773aa980334d80ac50db8af1cce8a79ae16.jpeg",
+                          "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/3/35b/8ba1f3aa44dcdbef85f4dd81087b7d80f852d.jpeg"
+                          ],
+                          "is_healthy": 0.9527,
+                          "name": "Rosa x Odorata",
+                          "probability": 0.8524,
+                      }
+                  });
+              }, 1000); // Simulate a 1-second network request
+          });
+      }
 
-    // Function to display the data
-    function displayData(data) {
-        const imagesContainer = document.querySelector('.image-gallery');
-        const plantName = document.getElementById('plant-name');
-        const healthStatus = document.getElementById('health-status');
-        const probability = document.getElementById('probability');
+      // Function to display the data
+      function displayData(data) {
+          const imagesContainer = document.querySelector('.image-gallery');
+          const plantName = document.getElementById('plant-name');
+          const healthBar = document.getElementById('health-bar');
+          const probabilityBar = document.getElementById('probability-bar');
 
-        // Clear previous content
-        imagesContainer.innerHTML = '';
-        plantName.innerHTML = '';
-        healthStatus.innerHTML = '';
-        probability.innerHTML = '';
+          // Clear previous content
+          imagesContainer.innerHTML = '';
+          plantName.innerHTML = '';
+          healthBar.style.width = '0%';
+          probabilityBar.style.width = '0%';
 
-        // Set new content
-        data.result.images.forEach((image) => {
-            const imgElement = document.createElement('img');
-            imgElement.src = image;
-            imagesContainer.appendChild(imgElement);
-        });
+          // Set new content
+          data.result.images.forEach((image) => {
+              const imgElement = document.createElement('img');
+              imgElement.src = image;
+              imagesContainer.appendChild(imgElement);
+          });
 
-        plantName.textContent = `Name: ${data.result.name}`;
-        healthStatus.textContent = `Health Status: ${data.result.is_healthy >= 0.5 ? 'Healthy' : 'Unhealthy'} (${data.result.is_healthy * 100}%)`;
-        probability.textContent = `Probability: ${data.result.probability * 100}%`;
-    }
+          plantName.textContent = `Name: ${data.result.name}`;
+          healthBar.style.width = `${data.result.is_healthy * 100}%`;
+          healthBar.textContent = `${(data.result.is_healthy * 100).toFixed(2)}%`;
+          probabilityBar.style.width = `${data.result.probability * 100}%`;
+          probabilityBar.textContent = `${(data.result.probability * 100).toFixed(2)}%`;
+      }
 
-    // Call function to display the data
-    displayData(jsonData);
-</script>
+      // Function to simulate fetching data
+      function fetchData() {
+          simulateFetchData()
+              .then(data => displayData(data))
+              .catch(error => console.error('Error fetching data:', error));
+      }
+
+      // Call function to fetch data when the page loads
+      fetchData();
+  </script>
   </div>
 
   <footer>

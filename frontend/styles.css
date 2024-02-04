@@ -465,7 +465,7 @@ img {
 }
 
 .image-gallery {
-  
+  width: 160%;
 }
 
 .info {
@@ -473,7 +473,8 @@ img {
 }
 
 #plant-name {
-  
+  font-size: 35px;
+  font-weight: 600;
 }
 
 #health-status{
