@@ -77,6 +77,7 @@ html {
   
   nav a img {
     height: 50px;
+    width: 50px;
   }
   
   #nav-list {
@@ -339,7 +340,6 @@ html {
     cursor: pointer;
   }
   
-  /* Overlay styling */
   .overlay {
     display: none;
     position: fixed;
@@ -398,13 +398,104 @@ html {
 
       /*------------------------------------*/
       .uploadbtn {
+
         width:95%;
         padding: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 100px;
         background-color: rgb(255,255,255, 0.2);
         box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
         border-radius: 15px;        
         color: white;
-        height: 50px;
+        height: 150px;
         font-size: 35px;
     }
+
+    .uploadbtn2 {
+      width:98%;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: rgb(255,255,255, 0.2);
+      box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+      border-radius: 15px;        
+      font-size: 35px;
+      height: 150px;
+  }
+
+/*-----------------API REQUEST PLANT.ID---------------------*/
+.containerapi {
+  width:98%;
+  padding: 20px;
+  margin-bottom: 10px;
+  background-color: rgb(255,255,255, 0.2);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;        
+}
+
+img {
+  width: 385px;
+  height: auto;
+  margin: 10px;
+}
+.container {
+  margin: 20px;
+}
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+.info {
+  margin-top: 20px;
+  background-color: rgb(255,255,255, 0.2);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;     
+  padding: 20px;   
+}
+.progress-container {
+  width: 100%;
+  background-color: #eee;
+  margin: 10px 0;
+}
+.progress-bar {
+  height: 20px;
+  background-color: #4CAF50;
+  text-align: center;
+  line-height: 20px;
+  color: white;
+  width: 0%; /* Initial width */
+}
+
+.image-gallery {
+  
+}
+
+.info {
+  
+}
+
+#plant-name {
+  
+}
+
+#health-status{
+  
+}
+
+#probability{
+  
+}
+
+.loginbtn1 {
+  background-color: rgba(255, 255, 255, 0.575);
+  font-size: 50px;
+  margin-top: 100px;
+  margin-bottom: 150px;
+  margin-left: 10%;
+  margin-right: 10%;
+  padding: 30px;
+  border-radius: 15px;
+  border: #cacaca;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  color: white;
+  text-shadow: 10px 10px 20px rgba(0, 0, 0, 0.9);
+  transition: background-color 0.5s ease;
+}

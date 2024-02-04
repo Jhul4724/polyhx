@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css" >
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <link rel="shortcut icon" type="image/x-icon" href="./Images/logo.png" />
+  <title>Home Page</title>
+  <style>
+    img {
+        width: 200px;
+        height: auto;
+        margin: 10px;
+    }
+    .container {
+        margin: 20px;
+    }
+    .image-gallery {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .info {
+        margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <nav>
+      <a href="index.html"><img src="./Images/logo.png" alt="Logo"></a>
+      
+      <ul id="nav-list">
+        <li><a href="index.html" style="background-color:rgb(0, 64, 19); padding: 10px; box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2); color:rgb(255, 255, 255); font-weight:550;">Accueil</a></li>
+        <li><a href="./acheter.html">Acheter</a></li>
+        <li><a href="./vendre.html">Vendre</a></li>
+      </ul>
+    
+      <a href="seconnecter.html"  style="background-color: rgb(0, 85, 37); padding: 10px; font-size: 15px; border-radius: 15px; text-decoration: none; box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);color: white; font-weight: 500;">Déconnecter</a>
+    </nav>
+    <hr style="margin-top: 0; margin-right: 20px; margin-left: 20px; border: 0; height: 5px; background-color:rgb(0, 57, 6);">
+    <div class="image-container"></div>
+  </section>
+
+  <div class="maincontent" style="height: 100vh;">
+
+    <div class="containerapi">
+      <div class="image-gallery"></div>
+      <div class="info">
+          <p id="plant-name"></p>
+          <p id="health-status"></p>
+          <p id="probability"></p>
+      </div>
+  </div>
+
+  <script>
+    // Your JSON data
+    const jsonData = {
+        "result": {
+            "images": [
+                "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/3/d15/5241bc44035d6c7318d98c6e76254ad66b002.jpeg",
+                "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/3/e32/4a425b0671fd6501d60cd3d98b8eab12c6347.jpeg"
+            ],
+            "is_healthy": 0.9859478659927845,
+            "name": "Animalia",
+            "probability": 0.014083078
+        }
+    };
+
+    // Function to display the data
+    function displayData(data) {
+        const imagesContainer = document.querySelector('.image-gallery');
+        const plantName = document.getElementById('plant-name');
+        const healthStatus = document.getElementById('health-status');
+        const probability = document.getElementById('probability');
+
+        // Clear previous content
+        imagesContainer.innerHTML = '';
+        plantName.innerHTML = '';
+        healthStatus.innerHTML = '';
+        probability.innerHTML = '';
+
+        // Set new content
+        data.result.images.forEach((image) => {
+            const imgElement = document.createElement('img');
+            imgElement.src = image;
+            imagesContainer.appendChild(imgElement);
+        });
+
+        plantName.textContent = `Name: ${data.result.name}`;
+        healthStatus.textContent = `Health Status: ${data.result.is_healthy >= 0.5 ? 'Healthy' : 'Unhealthy'} (${data.result.is_healthy * 100}%)`;
+        probability.textContent = `Probability: ${data.result.probability * 100}%`;
+    }
+
+    // Call function to display the data
+    displayData(jsonData);
+</script>
+  </div>
+
+  <footer>
+    <!-- Footer content here -->
+  </footer>
+</body>
+</html>

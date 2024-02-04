@@ -19,40 +19,35 @@
         <li><a href="./acheter.html">Acheter</a></li>
         <li><a href="./vendre.html">Vendre</a></li>
       </ul>
-    
-      <button id="logoutButton" class="try-now">Se déconnecter</button>
+      <a href="seconnecter.html"  style="background-color: rgb(0, 85, 37); padding: 10px; font-size: 15px; border-radius: 15px; text-decoration: none; box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);color: white; font-weight: 500;">Déconnecter</a>
+      
     </nav>
     <hr style="margin-top: 0; margin-right: 20px; margin-left: 20px; border: 0; height: 5px; background-color:rgb(0, 57, 6);">
     <div class="image-container"></div>
   </section>
 
   <div class="maincontent" style="height: 100vh;">
-    <h1>Téléverser une Photo</h1>
-    <input type="file" accept="image/*" id="photoInput" class="uploadbtn">
-    <button id="uploadButton" class="uploadbtn">Uploader la Photo</button>
+    <h1 style="margin-top: 600px;">Téléverser une Photo</h1>
+    <div>
+      <input type="file" id="fileInput">
+      <p>Uploaded File URL: <span id="fileUrl"></span></p>
+      <a href="./plantid.html" style="background-color: rgb(0, 85, 37); padding: 10px; font-size: 15px; border-radius: 15px; text-decoration: none; box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);color: white; font-weight: 500;">Upload Picture</a>
+      <div id="apiResponse"></div>
+  </div>
 
-    <p id="photoPath"></p>
+  <script>
+      document.getElementById('fileInput').addEventListener('change', function() {
+          const file = this.files[0];
+          if (file) {
+              // Create a blob URL for the file
+              const fileUrl = URL.createObjectURL(file);
+              // Display the URL
+              document.getElementById('fileUrl').textContent = fileUrl;
+          }
+      });
+  </script>
+  <script src="./js/index.js" defer></script>
 
-    <script>
-        const photoInput = document.getElementById('photoInput');
-        const uploadButton = document.getElementById('uploadButton');
-        const photoPath = document.getElementById('photoPath');
-
-        // Gérer le clic sur le bouton "Uploader la Photo"
-        uploadButton.addEventListener('click', () => {
-            if (photoInput.files.length > 0) {
-                const selectedFile = photoInput.files[0];
-
-                // Créer un objet URL pour la photo téléchargée
-                const objectURL = URL.createObjectURL(selectedFile);
-
-                // Afficher le chemin absolu du fichier
-                photoPath.textContent = `Chemin absolu : ${objectURL}`;
-            } else {
-                photoPath.textContent = 'Aucune photo sélectionnée.';
-            }
-        });
-    </script>
   </div>
 
   <footer>
