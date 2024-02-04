@@ -6,5 +6,6 @@
         "PASSWORD": "password",
         "HOST": "localhost",
         "PORT": "5432"
-    }
+    },
+    "min_password_length": 3
 }

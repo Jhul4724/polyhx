@@ -15,6 +15,9 @@ class ConfigSchema:
     DB_PASSWORD = 'PASSWORD'
     DB_HOST = 'HOST'
     DB_PORT = 'PORT'
+    
+    # User Credentials
+    MIN_PASSWORD_LENGTH = 'min_password_length'
 
 
 def load_config():
@@ -31,12 +34,14 @@ def load_config():
 
     # Load config
     config = None
+    config_path = f'{project_path}/{config_file}'
     with open(
-        f'{project_path}/{config_file}',
+        config_path,
         'r',
     ) as f:
         config = json.load(f)
         config['project_root_folder'] = project_path
+        print(f' * Loaded config from {config_path}')
 
     # Check if config loaded
     if config is None:
@@ -47,7 +52,7 @@ def load_config():
     
     # Add root path to folders
     for key in [
-        'resource_folder',
+        'images',
     ]:
         if key in config.keys():
             config[key] = root_path + config[key]
